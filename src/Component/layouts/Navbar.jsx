@@ -1,128 +1,92 @@
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-
 const Navbar = () => {
-  
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   return (
-    <header className='sticky top-0 z-50 bg-gray-600'>
-      <div className='max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative'>
+    <header className='fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10'>
+      
+      <div className='max-w-7xl mx-auto px-6 md:px-16 py-2 flex items-center justify-between relative text-white'>
         
         {/* Logo */}
-        <Link to="/" className='flex items-center gap-2 font-bold text-lg z-10'>
-        JesseStark hotel and suits
-        </Link>
-        {/* Destop Links */}
-        <nav className='hidden md:flex absolute left-1/2 transform -translate-x-1/2 gap-8'>
-        <Link className='hover:text-[var(--primary-color)]' to="/">
-        Home
+        <Link to="/" className='font-semibold text-lg tracking-wide z-10'>
+          JesseStark Hotel
         </Link>
 
-        <Link className='hover:text-[var(--primary-color)]' to="/services">
-        Services
-        </Link>
-
-        <Link className='hover:text-[var(--primary-color)]' to="/about"> 
-        About
-        </Link>
-
-        <Link className='hover:text-[var(--primary-color)]' to="/booking">
-          Booking
-        </Link>
-
-
+        {/* Desktop Links */}
+        <nav className='hidden md:flex absolute left-1/2 transform -translate-x-1/2 gap-10'>
+          <Link className='hover:text-gray-500 transition' to="/">Home</Link>
+          <Link className='hover:text-gray-500 transition' to="/services">Services</Link>
+          <Link className='hover:text-gray-500 transition' to="/about">About</Link>
+          <Link className='hover:text-gray-500 transition' to="/booking">Booking</Link>
         </nav>
 
         {/* Desktop Button */}
-
         <div className='hidden md:flex z-10'>
-
-         <Link to="/register" className='px-5 py-2 rounded-md text-white bg-[var(--primary-color)] hover:opacity-90'>
-           Create Account
-           </Link>
-              
-          {/* Mobile Toggle */}
-          <button className='md:hidden text-2x1 z-10'
-            onClick={() => setMenuOpen(true)}>
-                 ☰            
-          </button>
+          <Link 
+            to="/register" 
+            className='px-5 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-400 transition'
+          >
+            Create Account
+          </Link>
         </div>
-          {/* Mobile Toggle */}
-        <button className="md:hidden text-2xl z-10"
+
+        {/* Mobile Toggle */}
+        <button 
+          className="md:hidden text-2xl z-10"
           onClick={() => setMenuOpen(true)}
         >
           ☰
         </button>
       </div>
 
-      {/* Mobile Sidebar */}
       {/* Overlay */}
-      <div className={`fixed inset-0 z-40 bg-semiblack bg-opacity-50 transition-opacity md:hidden ${
+      <div 
+        className={`fixed inset-0 z-40 bg-black/80 transition-opacity md:hidden ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMenuOpen(false)}
       ></div>
 
       {/* Sidebar */}
-      <div className={`fixed top-0 left-0 z-50 h-full w-64 bg-white shadow-lg transform transition-transform md:hidden ${
+      <div 
+        className={`fixed top-0 left-0 z-50 h-full w-64 bg-black text-white shadow-lg transform transition-transform md:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"  
         }`}
       >
         <div className="px-6 py-6 flex justify-between items-center border-b">
-          <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-            Hotel
+          <Link to="/" className="font-semibold text-lg">
+            JesseStark
           </Link>
-          <button className="text-2xl"
+          <button 
+            className="text-2xl"
             onClick={() => setMenuOpen(false)}
           >
             ✕
           </button>
         </div>
 
-        <nav className='flex flex-col mt-6 space-y-4 px-6'>
-          <Link 
-          onClick={() =>
-            setMenuOpen(false)
-          } to="/" className='hover:text-[var(--primary-color)]'>
-            Home
-          </Link>
-          
-          <Link 
-          onClick={() => setMenuOpen(false)}
-          to="/services" 
-          className='hover:text-[var(--primary-color)]'>
-            Services
-          </Link>
-
-          <Link 
-          onClick={() => setMenuOpen(false)}
-          to="/about" 
-          className='hover:text-[var(--primary-color)]'>
-            About
-          </Link>
-
-          <Link 
-          onClick={() => setMenuOpen(false)}
-          to="/booking" 
-          className='hover:text-[var(--primary-color)]'>
-            Booking
-          </Link>
+        <nav className='flex flex-col mt-6 space-y-6 px-6 bg-blur'>
+          <Link onClick={() => setMenuOpen(false)} to="/" className='text-blue-600 hover:text-black'>Home</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/services" className='text-blue-600 hover:text-black'>Services</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/about" className='text-blue-600 hover:text-black'>About</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/booking" className='text-blue-600 hover:text-black'>Booking</Link>
 
           <Link
-            to="/"
+            to="/register"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 text-center text-white py-2 rounded-md bg-[var(--primary-color)]"
+            className="mt-2 text-center py-3 rounded-md bg-blue-600 text-black font-medium"
           >
-           Create Account 
+            Create Account 
           </Link>
         </nav>
       </div>
+
     </header>
   )
 }
 
-export default Navbar
+export default Navbar;
 

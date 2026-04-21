@@ -53,6 +53,7 @@ function App() {
         {/* Simple layout (Navbar + Footer only) */}
         <Route element={<SimpleLayout />}>
           <Route path="/about" element={<AboutSection />} />
+          
         </Route>
       </Routes>
 
