@@ -35,7 +35,7 @@ const Ourservices = () => {
         </div>
         </Link>
 
-          <Link to="/Real-estate" className='flex-1 max-w-md bg-gray-200 border rounded-xl overflow-hidden shadows-sm hover:shadow-md transition hover:-translate-y-1'>
+          <Link className='flex-1 max-w-md bg-gray-200 border rounded-xl overflow-hidden shadows-sm hover:shadow-md transition hover:-translate-y-1'>
         <div className='p-10 text-center'>
           <h3 className='text-xl font-semibold text-[var(--primary color)] mb-4'>
             House-rental Service
