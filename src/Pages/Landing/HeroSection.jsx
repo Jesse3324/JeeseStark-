@@ -35,7 +35,7 @@ const HeroSection = () => {
           <div className='mt-8 flex gap-4'>
             <Link 
               to="/booking"
-              className='px-6 py-3 rounded-md bg-white text-black font-medium hover:bg-gray-200 transition'
+              className='px-6 py-3 rounded-md bg-white text-black font-medium hover:bg-gray-400 transition'
             >
               Book Now
             </Link>

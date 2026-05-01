@@ -26,7 +26,6 @@ const Navbar = () => {
         {/* Desktop Button */}
         <div className='hidden md:flex z-10'>
           <Link 
-            
             className='px-5 py-2 rounded-md bg-white text-black font-medium hover:bg-gray-400 transition'
           >
             Create Account
@@ -52,23 +51,23 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div 
-        className={`fixed top-0 left-0 z-50 h-full w-64 bg-black text-white shadow-lg transform transition-transform md:hidden ${
+        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-white text-black shadow-lg transform transition-transform md:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"  
         }`}
       >
         <div className="px-6 py-6 flex justify-between items-center border-b">
-          <Link to="/" className="font-semibold text-lg">
+          <Link to="/" className="font-semibold text-lg text-black">
             JesseStark
           </Link>
           <button 
-            className="text-2xl"
+            className="text-2xl text-black"
             onClick={() => setMenuOpen(false)}
           >
             ✕
           </button>
         </div>
 
-        <nav className='flex flex-col mt-6 space-y-6 px-6 bg-blur'>
+        <nav className='flex flex-col mt-6 space-y-6 px-6'>
           <Link onClick={() => setMenuOpen(false)} to="/" className='text-blue-600 hover:text-black'>Home</Link>
           <Link onClick={() => setMenuOpen(false)} to="/services" className='text-blue-600 hover:text-black'>Services</Link>
           <Link onClick={() => setMenuOpen(false)} to="/about" className='text-blue-600 hover:text-black'>About</Link>
@@ -77,7 +76,7 @@ const Navbar = () => {
           <Link
             to="/register"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 text-center py-3 rounded-md bg-blue-600 text-black font-medium"
+            className="mt-2 text-center py-3 rounded-md bg-blue-600 text-white font-medium"
           >
             Create Account 
           </Link>
@@ -89,4 +88,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
